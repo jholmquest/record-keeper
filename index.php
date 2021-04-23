@@ -7,7 +7,9 @@
 
     $results = $reader->readAll();
 
+    echo "<select name='character'>";
     foreach($results as $character) {
-        echo "$character->name<hr>";
+        echo "<option>$character->name</option>";
     }
+    echo "</select>";
 ?>

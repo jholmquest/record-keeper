@@ -1,1 +1,6 @@
 Format of properties file:
+<?php
+    define("DB_SCHEMA", *schema*);
+    define("DB_USER", *username*);
+    define("DB_PASS", *password*);
+?>

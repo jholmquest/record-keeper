@@ -1,3 +1,5 @@
 <?php
-    echo "Welcome to the Record Keeper";
+    require_once('template/head.php');
+    require_once('template/header.php');
+    require_once('template/footer.php');
 ?>

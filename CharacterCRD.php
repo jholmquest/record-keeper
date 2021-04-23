@@ -1,7 +1,7 @@
 <?php
     require_once('resources/properties.php');
     require_once('Character.php');
-    
+
     class CharacterCRD {
 
         function readAll() {
@@ -24,10 +24,7 @@
                 echo "{$ex->getMessage()}<br/>";
             }
             
-            foreach($results as $character)
-            {
-                echo $character;
-            }
+            return $results;
         }
     }
 ?>

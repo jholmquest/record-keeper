@@ -5,5 +5,9 @@
 
     $reader = new CharacterCRD();
 
-    $reader->readAll();
+    $results = $reader->readAll();
+
+    foreach($results as $character) {
+        echo "$character->name<hr>";
+    }
 ?>

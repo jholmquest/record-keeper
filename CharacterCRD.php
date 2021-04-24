@@ -1,6 +1,6 @@
 <?php
     require_once('resources/properties.php');
-    require_once('Character.php');
+    require_once('model/Character.php');
 
     class CharacterCRD {
 

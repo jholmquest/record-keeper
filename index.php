@@ -5,10 +5,6 @@
 
     $reader = new CharacterCRD();
 
-    if (isset($_POST['dropdown'])) {
-        echo $_POST['dropdown'];
-    }
-
     $results = $reader->readAll();
 ?>
     <form name='oldCharacter' action='#' method='POST'>
@@ -23,14 +19,12 @@
         <button type='submit'>View</button>
         <button type='submit' formaction='deleteCharacter.php' name='delete'>Delete</button>
     </form>
+    <hr>
+    <form name='newCharacter' method='POST' action='createCharacter.php'>
+        <input type='text' name='characterName'>
+        <button type='submit' name='create'>Create Character</button>
+    </form>
 <?php
-    $feat = new Feat();
-    $feat->feat_name = "Power Attack";
-    $feat->feat_url = "https://2e.aonprd.com/Feats.aspx?ID=359";
-
-    echo $feat;
-
-    echo $reader->readById(1);
     
     require_once('template/footer.php');
 

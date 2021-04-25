@@ -26,5 +26,29 @@
             
             return $results;
         }
+
+        public function create($name, $email)
+        {
+            // Database technology & Server location; database name, credentials: (user, password)
+            $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);
+            
+            // Insert a new record
+            $sql = "INSERT INTO game_character(`name`) VALUES(:name)";
+            
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            try
+            {
+                $query = $db->prepare($sql);
+                $query->bindParam(':name', $name);
+                $query->execute();
+            }
+            catch (Exception $ex)
+            {
+                echo "{$ex->getMessage()}<br/>";
+            }
+            
+            return $db->lastInsertId(); // Returns the primary key of this INSERT
+        }
     }
 ?>

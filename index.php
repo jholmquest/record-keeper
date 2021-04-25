@@ -9,7 +9,7 @@
 
     echo "<select name='character'>";
     foreach($results as $character) {
-        echo "<option>$character->name</option>";
+        echo $character;
     }
     echo "</select>";
 

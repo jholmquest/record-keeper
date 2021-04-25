@@ -20,7 +20,8 @@
             }
     ?>
         </select>
-        <input type='submit' value='View'/>
+        <button type='submit'>View</button>
+        <button type='submit' formaction='#'>Delete</button>
     </form>
 <?php
     $feat = new Feat();

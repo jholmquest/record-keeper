@@ -8,5 +8,5 @@
         $deleteClass->delete($_POST['dropdown']);
     }
 
-    header('Location: index.php');
+    header('Location: .');
 ?>

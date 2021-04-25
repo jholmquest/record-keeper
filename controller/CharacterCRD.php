@@ -13,14 +13,13 @@
             
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-            try
-            {
+            try {
+
                 $query = $db->prepare($sql);
                 $query->execute();
                 $results = $query->fetchAll(PDO::FETCH_CLASS, 'Character');
-            }
-            catch (Exception $ex)
-            {
+            } catch (Exception $ex) {
+                
                 echo "{$ex->getMessage()}<br/>";
             }
             
@@ -36,14 +35,14 @@
             
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-            try
-            {
+            try {
+
                 $query = $db->prepare($sql);
                 $query->bindParam(':name', $name);
                 $query->execute();
-            }
-            catch (Exception $ex)
-            {
+
+            } catch (Exception $ex) {
+
                 echo "{$ex->getMessage()}<br/>";
             }
             

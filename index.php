@@ -10,13 +10,18 @@
     }
 
     $results = $reader->readAll();
-
-    echo "<select name='character'>";
+?>
+    <form name='oldCharacter' action='#' method='POST'>
+    <select name='dropdown'>
+<?php
     foreach($results as $character) {
         echo "<option>$character->name</option>";
     }
-    echo "</select>";
-
+?>
+    </select>
+        <input type='submit' value='View'/>
+    </form>
+<?php
     $feat = new Feat();
     $feat->feat_name = "Power Attack";
     $feat->feat_url = "https://2e.aonprd.com/Feats.aspx?ID=359";

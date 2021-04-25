@@ -72,5 +72,28 @@
             
             return $db->lastInsertId(); // Returns the primary key of this INSERT
         }
+
+        public function delete($id) {
+
+            $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);
+
+            $sql = "DELETE FROM game_character WHERE id=:id";
+            
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            try
+            {
+                $query = $db->prepare($sql);
+                $query->bindParam(':id', $id);
+                $query->execute();
+                $rows_affected = $query->rowCount();
+            }
+            catch (Exception $ex)
+            {
+                echo "{$ex->getMessage()}<br/>";
+            }
+            
+            return  $rows_affected;
+        }
     }
 ?>

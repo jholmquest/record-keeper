@@ -1,6 +1,6 @@
 <?php
     require_once('template/header.php');
-    require_once('characterCRD.php');
+    require_once('controller/characterCRD.php');
     require_once('model/Feat.php');
 
     $reader = new CharacterCRD();

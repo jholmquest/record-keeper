@@ -27,7 +27,7 @@
             return $results;
         }
 
-        public function create($name, $email)
+        public function create($name)
         {
             // Database technology & Server location; database name, credentials: (user, password)
             $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);

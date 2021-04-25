@@ -5,11 +5,15 @@
 
     $reader = new CharacterCRD();
 
+    if (isset($_GET['character'])) {
+        $reader->create($_GET['character']);
+    }
+
     $results = $reader->readAll();
 
     echo "<select name='character'>";
     foreach($results as $character) {
-        echo $character;
+        echo "<option>$character->name</option>";
     }
     echo "</select>";
 
@@ -20,4 +24,6 @@
     echo $feat;
     
     require_once('template/footer.php');
+
+
 ?>

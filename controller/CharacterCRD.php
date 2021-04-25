@@ -27,9 +27,8 @@
             return $results;
         }
 
-        public function create($name)
-        {
-            // Database technology & Server location; database name, credentials: (user, password)
+        public function create($name) {
+            
             $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);
             
             // Insert a new record

@@ -12,13 +12,14 @@
     $results = $reader->readAll();
 ?>
     <form name='oldCharacter' action='#' method='POST'>
-    <select name='dropdown'>
-<?php
-    foreach($results as $character) {
-        echo "<option>$character->name</option>";
-    }
-?>
-    </select>
+        <select name='dropdown'>
+    <?php
+            foreach($results as $character) {
+                
+                echo "<option value=$character->id>$character->name</option>";
+            }
+    ?>
+        </select>
         <input type='submit' value='View'/>
     </form>
 <?php

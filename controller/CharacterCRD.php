@@ -19,11 +19,35 @@
                 $query->execute();
                 $results = $query->fetchAll(PDO::FETCH_CLASS, 'Character');
             } catch (Exception $ex) {
-                
+
                 echo "{$ex->getMessage()}<br/>";
             }
             
             return $results;
+        }
+
+        function readById($id) {
+
+            $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);
+            
+            // Reads record of appropriate id
+            $sql = "SELECT * FROM game_character WHERE id=:id";
+            
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            try {
+
+                $query = $db->prepare($sql);
+                $query->bindParam(':id', $id);
+                $query->execute();
+                $result = $query->fetchObject('Character');
+
+            } catch (Exception $ex) {
+                
+                echo "{$ex->getMessage()}<br/>";
+            }
+            
+            return $result;
         }
 
         public function create($name) {

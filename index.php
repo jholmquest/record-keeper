@@ -28,6 +28,8 @@
     $feat->feat_url = "https://2e.aonprd.com/Feats.aspx?ID=359";
 
     echo $feat;
+
+    echo $reader->readById(1);
     
     require_once('template/footer.php');
 

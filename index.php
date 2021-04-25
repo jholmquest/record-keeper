@@ -5,8 +5,8 @@
 
     $reader = new CharacterCRD();
 
-    if (isset($_GET['character'])) {
-        $reader->create($_GET['character']);
+    if (isset($_POST['dropdown'])) {
+        echo $_POST['dropdown'];
     }
 
     $results = $reader->readAll();
@@ -21,7 +21,7 @@
     ?>
         </select>
         <button type='submit'>View</button>
-        <button type='submit' formaction='#'>Delete</button>
+        <button type='submit' formaction='deleteCharacter.php' name='delete'>Delete</button>
     </form>
 <?php
     $feat = new Feat();

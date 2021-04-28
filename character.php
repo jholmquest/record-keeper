@@ -6,8 +6,12 @@
         exit;
     }
     
-    require_once('template/header.php');
     require_once('controller/FeatCRUD.php');
+    require_once('createFeat.php');
+    require_once('editFeat.php');
+    require_once('deleteFeat.php');
+    
+    require_once('template/header.php');
 
     echo "<h2>Feats for " . $_SESSION['character'] . "</h2>";
 

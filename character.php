@@ -16,15 +16,24 @@
 
     echo "<table>";
 
+    // display each feat, use the fancy form attribute added in html5
     foreach($feats as $feat) {
-
-        echo "<tr><td>$feat</td>";
-        echo "<td><a href='#'>edit</a></td>";
-        echo "<td><a href='#'>delete</a><td></tr>";
-    }
-
-    echo "</table>";
 ?>
+        <tr>
+            <td><?php echo $feat;?></td>
+
+            <td><button type='submit' name='editFeat' form='editFeat' 
+                    value=<?php echo $feat->id;?>>edit</button></td>
+            <td><button type='submit' name='deleteFeat' form='deleteFeat' 
+                    value=<?php echo $feat->id;?>>delete</button></td>
+        </tr>  
+<?php
+    }
+?>
+    </table>
+    <!--gives a form for each row to reference without having to generate multiple forms-->
+    <form id='editFeat' method='POST' action='.?edit=used'></form>
+    <form id='deleteFeat' method='POST' action='.?delete=used'></form>
     <hr>
     <h3>Add a new feat</h3>
     <form name='featCreator' action='#' method='POST'>

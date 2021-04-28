@@ -16,7 +16,11 @@
 
     echo "<table>";
 
-    // display each feat, use the fancy form attribute added in html5
+    /* 
+    * display each feat, use the fancy form attribute added in html5
+    * was unsure initially the best way to handle this
+    * got idea from here https://stackoverflow.com/questions/5967564/form-inside-a-table
+    */
     foreach($feats as $feat) {
 ?>
         <tr>
@@ -31,7 +35,7 @@
     }
 ?>
     </table>
-    <!--gives a form for each row to reference without having to generate multiple forms-->
+    <!--gives a form for each row to reference without having to generate a form for each value-->
     <form id='editFeat' method='POST' action='.?edit=used'></form>
     <form id='deleteFeat' method='POST' action='.?delete=used'></form>
     <hr>

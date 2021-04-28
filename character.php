@@ -25,6 +25,7 @@
 
     echo "</table>";
 ?>
+    <hr>
     <h3>Add a new feat</h3>
     <form name='featCreator' action='#' method='POST'>
         <label for='featName'>Feat Name</label>
@@ -35,6 +36,7 @@
 
         <button type='submit' name='addFeat'>Add Feat</button>
     </form>
+    <hr>
 <?php
 
 

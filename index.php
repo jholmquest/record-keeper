@@ -7,7 +7,7 @@
 
     $results = $reader->readAll();
 ?>
-    <form name='oldCharacter' action='#' method='POST'>
+    <form name='oldCharacter'>
         <select name='dropdown'>
     <?php
             foreach($results as $character) {
@@ -16,8 +16,8 @@
             }
     ?>
         </select>
-        <button type='submit'>View</button>
-        <button type='submit' formaction='deleteCharacter.php' name='delete'>Delete</button>
+        <button type='submit' formaction='selectCharacter.php' name='choose' formmethod='GET'>View</button>
+        <button type='submit' formaction='deleteCharacter.php' name='delete' formmethod='POST'>Delete</button>
     </form>
     <hr>
     <form name='newCharacter' method='POST' action='createCharacter.php'>

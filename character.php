@@ -7,10 +7,6 @@
     }
     
     require_once('controller/FeatCRUD.php');
-    require_once('createFeat.php');
-    require_once('editFeat.php');
-    require_once('deleteFeat.php');
-    
     require_once('template/header.php');
 
     echo "<h2>Feats for " . $_SESSION['character'] . "</h2>";
@@ -40,11 +36,11 @@
 ?>
     </table>
     <!--gives a form for each row to reference without having to generate a form for each value-->
-    <form id='editFeat' method='POST' action='.?edit=used'></form>
-    <form id='deleteFeat' method='POST' action='.?delete=used'></form>
+    <form id='editFeat' method='POST' action='editFeat.php'></form>
+    <form id='deleteFeat' method='POST' action='deleteFeat.php'></form>
     <hr>
     <h3>Add a new feat</h3>
-    <form name='featCreator' action='#' method='POST'>
+    <form name='featCreator' action='createFeat.php' method='POST'>
         <label for='featName'>Feat Name</label>
         <input type='text' id='featName' name='featName' required>
 

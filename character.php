@@ -26,9 +26,9 @@
         <tr>
             <td><?php echo $feat;?></td>
 
-            <td><button type='submit' name='editFeat' form='editFeat' 
+            <td><button type='submit' name='editFeat' form='featEditor' 
                     value=<?php echo $feat->id;?>>edit</button></td>
-            <td><button type='submit' name='deleteFeat' form='deleteFeat' 
+            <td><button type='submit' name='deleteFeat' form='featDeleter' 
                     value=<?php echo $feat->id;?>>delete</button></td>
         </tr>  
 <?php
@@ -36,8 +36,8 @@
 ?>
     </table>
     <!--gives a form for each row to reference without having to generate a form for each value-->
-    <form id='editFeat' method='POST' action='editFeat.php'></form>
-    <form id='deleteFeat' method='POST' action='deleteFeat.php'></form>
+    <form id='featEditor' method='POST' action='editFeat.php'></form>
+    <form id='featDeleter' method='POST' action='deleteFeat.php'></form>
     <hr>
     <h3>Add a new feat</h3>
     <form name='featCreator' action='createFeat.php' method='POST'>

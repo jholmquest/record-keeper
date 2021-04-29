@@ -6,9 +6,10 @@
         $deleteClass = new CharacterCRD();
 
         $deleteClass->delete($_POST['dropdown']);
-    }
+    } else {
 
-    header('Location: .');
+        header('Location: .');
+    }
 
     exit;
 ?>

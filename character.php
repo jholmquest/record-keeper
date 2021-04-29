@@ -8,11 +8,11 @@
     
     require_once('controller/FeatCRUD.php');
     require_once('template/header.php');
+    require_once('featDAO.php');
 
     echo "<h2>Feats for " . $_SESSION['character'] . "</h2>";
 
-    $feat_reader = new FeatCRUD();
-    $feats = $feat_reader->readAll($_SESSION['id']);
+    $feats = $feat_dao->readAll($_SESSION['id']);
 
     echo "<table>";
 

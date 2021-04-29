@@ -3,6 +3,8 @@
     session_start();
     require_once('featDAO.php');
     require_once('template/header.php');
+
+    // first time get to page with a get to grab values for form
     if (isset($_GET['editFeat'])) {
 
         
@@ -20,6 +22,7 @@
         </form>
 <?php
   
+    // get to the page a second time with a post from before to actually change to the record
     } else if (isset($_POST['updateFeat'])) {
 
         $rows_affected = $feat_dao->update($_POST['featID'], $_POST['featName'], $_POST['featLink']);
@@ -27,6 +30,7 @@
         echo "Rows updated: $rows_affected";
         echo "<br><a href='character.php'>view character</a>";
 
+    // if someone gets to the page some other way
     } else {
         header('Location: character.php');
         exit;

@@ -2,10 +2,10 @@
 
     session_start();
     require_once('featDAO.php');
-    
+    require_once('template/header.php');
     if (isset($_GET['editFeat'])) {
 
-        require_once('template/header.php');
+        
         $feat = $feat_dao->readById($_GET['editFeat']);
 ?>
         <form action='editFeat.php' method='POST'> 
@@ -19,11 +19,17 @@
         <button type='submit' name='updateFeat'>Update</button>
         </form>
 <?php
-        
-        
-        require_once('template/footer.php');
+  
+    } else if (isset($_POST['updateFeat'])) {
+
+        $rows_affected = $feat_dao->update($_POST['featID'], $_POST['featName'], $_POST['featLink']);
+
+        echo "Rows updated: $rows_affected";
+        echo "<br><a href='character.php'>view character</a>";
+
     } else {
-        header('Location: character.php?edit=false');
+        header('Location: character.php');
         exit;
     }
+    require_once('template/footer.php');
 ?>

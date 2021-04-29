@@ -99,5 +99,30 @@
             return  $rows_affected;
         }
 
+        public function update($id, $name, $url) {
+
+            $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);
+
+            $sql = "UPDATE character_feats SET `feat_name`=:name, `feat_url`=:url WHERE `id`=:id";
+            
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            try
+            {
+                $query = $db->prepare($sql);
+                $query->bindParam(':id', $id);
+                $query->bindParam(':name', $name);
+                $query->bindParam(':url', $url);
+                $query->execute();
+                $rows_affected = $query->rowCount();
+            }
+            catch (Exception $ex)
+            {
+                echo "{$ex->getMessage()}<br/>";
+            }
+            
+            return  $rows_affected;
+        }
+
     }
 ?>

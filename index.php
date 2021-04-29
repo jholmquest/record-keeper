@@ -1,16 +1,12 @@
 <?php
     require_once('template/header.php');
-    require_once('controller/characterCRD.php');
-    require_once('model/Feat.php');
-
-    $reader = new CharacterCRD();
-
-    $results = $reader->readAll();
+    require_once('characterDAO.php');
+    $characters = $character_dao->readAll();
 ?>
     <form name='oldCharacter'>
         <select name='dropdown'>
     <?php
-            foreach($results as $character) {
+            foreach($characters as $character) {
                 
                 echo "<option value=$character->id>$character->name</option>";
             }

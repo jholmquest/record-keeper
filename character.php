@@ -36,7 +36,7 @@
 ?>
     </table>
     <!--gives a form for each row to reference without having to generate a form for each value-->
-    <form id='featEditor' method='POST' action='editFeat.php'></form>
+    <form id='featEditor' method='GET' action='editFeat.php'></form>
     <form id='featDeleter' method='POST' action='deleteFeat.php'></form>
     <hr>
     <h3>Add a new feat</h3>

@@ -1,14 +1,9 @@
 <?php
-    require_once('controller/CharacterCRD.php');
-
     if (isset($_POST['create'])) {
-        
-        $createClass = new CharacterCRD();
+        require_once('characterDao.php');
 
-        $createClass->create($_POST['characterName']);
+        $character_dao->create($_POST['characterName']);
     }
-
     header('Location: .');
-
     exit;
 ?>

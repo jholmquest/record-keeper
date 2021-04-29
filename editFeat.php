@@ -1,10 +1,11 @@
 <?php
 
     session_start();
+    require_once('featDAO.php');
+    
     if (isset($_GET['editFeat'])) {
 
         require_once('template/header.php');
-        require_once('featDAO.php');
         $feat = $feat_dao->readById($_GET['editFeat']);
 ?>
         <form action='editFeat.php' method='POST'> 

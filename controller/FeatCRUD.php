@@ -27,6 +27,30 @@
             return $results;
         }
 
+        function readById($id) {
+
+            $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);
+            
+            // Reads record of appropriate id
+            $sql = "SELECT * FROM character_feats WHERE id=:id";
+            
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            try {
+
+                $query = $db->prepare($sql);
+                $query->bindParam(':id', $id);
+                $query->execute();
+                $result = $query->fetchObject('Feat');
+
+            } catch (Exception $ex) {
+                
+                echo "{$ex->getMessage()}<br/>";
+            }
+            
+            return $result;
+        }
+
         function create($feat_name, $feat_link, $character_id) {
             $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);
             

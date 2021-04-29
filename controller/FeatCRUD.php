@@ -27,5 +27,29 @@
             return $results;
         }
 
+        function create($feat_name, $feat_link, $character_id) {
+            $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);
+            
+            // Insert a new record
+            $sql = "INSERT INTO character_feats(`feat_name`, `feat_url`, `character_id`) VALUES(:feat_name, :feat_link, :character_id)";
+            
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            try {
+
+                $query = $db->prepare($sql);
+                $query->bindParam(':feat_name', $feat_name);
+                $query->bindParam(':feat_link', $feat_link);
+                $query->bindParam(':character_id', $character_id);
+                $query->execute();
+
+            } catch (Exception $ex) {
+
+                echo "{$ex->getMessage()}<br/>";
+            }
+            
+            return $db->lastInsertId();
+        }
+
     }
 ?>

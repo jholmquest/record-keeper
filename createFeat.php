@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    require_once('sessionRequired.php');
 
     if (isset($_POST['addFeat'])) {
         require_once('featDao.php');

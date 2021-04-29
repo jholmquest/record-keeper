@@ -1,11 +1,5 @@
 <?php
-    session_start();
-    // forces user to home page if there is no session
-    if (!isset($_SESSION['id'])) {
-        header('Location: .');
-        exit;
-    }
-    
+    require_once('sessionRequired.php');
     require_once('controller/FeatCRUD.php');
     require_once('template/header.php');
     require_once('featDAO.php');

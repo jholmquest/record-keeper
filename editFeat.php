@@ -1,6 +1,6 @@
 <?php
 
-    session_start();
+    require_once('sessionRequired.php');
     require_once('featDAO.php');
     require_once('template/header.php');
 

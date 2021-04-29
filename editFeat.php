@@ -8,7 +8,7 @@
     if (isset($_GET['editFeat'])) {
 
         
-        $feat = $feat_dao->readById($_GET['editFeat']);
+        $feat = $feat_dao->readById($_GET['editFeat'], $_SESSION['id']);
 ?>
         <form action='editFeat.php' method='POST'> 
         <label for='featName'>Feat Name</label>
@@ -25,7 +25,7 @@
     // get to the page a second time with a post from before to actually change to the record
     } else if (isset($_POST['updateFeat'])) {
 
-        $rows_affected = $feat_dao->update($_POST['featID'], $_POST['featName'], $_POST['featLink']);
+        $rows_affected = $feat_dao->update($_POST['featID'], $_POST['featName'], $_POST['featLink'], $_SESSION['id']);
 
         echo "Rows updated: $rows_affected";
         echo "<br><a href='character.php'>view character</a>";

@@ -27,12 +27,12 @@
             return $results;
         }
 
-        function readById($id) {
+        function readById($id, $character_id) {
 
             $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);
             
             // Reads record of appropriate id
-            $sql = "SELECT * FROM character_feats WHERE id=:id";
+            $sql = "SELECT * FROM character_feats WHERE id=:id AND character_id=:character_id";
             
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
@@ -40,6 +40,7 @@
 
                 $query = $db->prepare($sql);
                 $query->bindParam(':id', $id);
+                $query->bindParam(':character_id', $character_id);
                 $query->execute();
                 $result = $query->fetchObject('Feat');
 
@@ -99,11 +100,11 @@
             return  $rows_affected;
         }
 
-        public function update($id, $name, $url) {
+        public function update($id, $name, $url, $character_id) {
 
             $db = new PDO(DB_SCHEMA, DB_USER, DB_PASS);
 
-            $sql = "UPDATE character_feats SET `feat_name`=:name, `feat_url`=:url WHERE `id`=:id";
+            $sql = "UPDATE character_feats SET `feat_name`=:name, `feat_url`=:url WHERE id=:id AND character_id=:character_id";
             
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
@@ -113,6 +114,7 @@
                 $query->bindParam(':id', $id);
                 $query->bindParam(':name', $name);
                 $query->bindParam(':url', $url);
+                $query->bindParam(':character_id', $character_id);
                 $query->execute();
                 $rows_affected = $query->rowCount();
             }

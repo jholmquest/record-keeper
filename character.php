@@ -9,6 +9,12 @@
         $feat_id = $feat_dao->create($_POST['featName'], $_POST['featLink'], $_SESSION['id']);
 
         $message = "<p>Feat named '" . $_POST['featName'] . "' added with id $feat_id</p>";
+
+    } else if (isset($_POST['deleteFeat'])) {
+
+        $rows_affected = $feat_dao->delete($_POST['deleteFeat'], $_SESSION['id']);
+
+        $message = "<p>$rows_affected feat(s) deleted</p>";
     }
 
     echo "<h2>Feats for " . $_SESSION['character'] . "</h2>";
@@ -38,7 +44,7 @@
     </table>
     <!--gives a form for each row to reference without having to generate a form for each value-->
     <form id='featEditor' method='GET' action='editFeat.php'></form>
-    <form id='featDeleter' method='POST' action='deleteFeat.php'></form>
+    <form id='featDeleter' method='POST'></form>
     <hr>
     <h3>Add a new feat</h3>
     <form name='featCreator' method='POST' class='form'>

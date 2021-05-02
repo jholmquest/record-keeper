@@ -13,4 +13,4 @@
     <header class="bg-primary text-light p-3">
         <h1>Record Keeper</h1>
     </header>
-    <main>
+    <main class="row my-2">

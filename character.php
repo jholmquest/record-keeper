@@ -8,7 +8,7 @@
 
     $feats = $feat_dao->readAll($_SESSION['id']);
 
-    echo "<table>";
+    echo "<table class='table'>";
 
     /* 
     * display each feat, use the fancy form attribute added in html5
@@ -34,7 +34,7 @@
     <form id='featDeleter' method='POST' action='deleteFeat.php'></form>
     <hr>
     <h3>Add a new feat</h3>
-    <form name='featCreator' action='createFeat.php' method='POST'>
+    <form name='featCreator' action='createFeat.php' method='POST' class='form'>
         <label for='featName'>Feat Name</label>
         <input type='text' id='featName' name='featName' required>
 

@@ -15,6 +15,13 @@
         $rows_affected = $feat_dao->delete($_POST['deleteFeat'], $_SESSION['id']);
 
         $message = "<p>$rows_affected feat(s) deleted</p>";
+
+    } else if (isset($_POST['updateFeat'])) {
+
+        $rows_affected = $feat_dao->update($_POST['featID'], $_POST['featName'], 
+                $_POST['featLink'], $_SESSION['id']);
+
+        $message = "<p>$rows_affected feat(s) modified</p>";                
     }
 
     echo "<h2>Feats for " . $_SESSION['character'] . "</h2>";

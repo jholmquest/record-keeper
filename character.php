@@ -4,6 +4,13 @@
     require_once('template/header.php');
     require_once('featDAO.php');
 
+    if (isset($_POST['addFeat'])) {
+
+        $feat_id = $feat_dao->create($_POST['featName'], $_POST['featLink'], $_SESSION['id']);
+
+        $message = "<p>Feat named '" . $_POST['featName'] . "' added with id $feat_id</p>";
+    }
+
     echo "<h2>Feats for " . $_SESSION['character'] . "</h2>";
 
     $feats = $feat_dao->readAll($_SESSION['id']);
@@ -34,7 +41,7 @@
     <form id='featDeleter' method='POST' action='deleteFeat.php'></form>
     <hr>
     <h3>Add a new feat</h3>
-    <form name='featCreator' action='createFeat.php' method='POST' class='form'>
+    <form name='featCreator' method='POST' class='form'>
         <label for='featName'>Feat Name</label>
         <input type='text' id='featName' name='featName' required>
 
@@ -46,7 +53,9 @@
     <hr>
 <?php
 
-
+    if (isset($message)) {
+        echo $message;
+    }
     echo "<a href='.'>return</a>";
     require_once('template/footer.php');
 ?>

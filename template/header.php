@@ -9,8 +9,8 @@
             rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" 
             crossorigin="anonymous">
 </head>
-<body>
-    <header>
+<body class="container bg-light">
+    <header class="bg-primary text-light p-3">
         <h1>Record Keeper</h1>
     </header>
     <main>

@@ -12,12 +12,12 @@
             echo "<a href='character.php'>Return to character</a>";
         } else {
 ?>
-        <form action='character.php' method='POST'> 
+        <form action='character.php' method='POST' class='form'> 
             <label for='featName' class="form-label">Feat Name</label>
-            <input type='text' id='featName' name='featName' value='<?php echo $feat->feat_name; ?>' required>
+            <input type='text' id='featName' name='featName' class='form-control' value='<?php echo $feat->feat_name; ?>' required>
 
             <label for='featLink' class="form-label">URL</label>
-            <input type='text' id='featLink' name='featLink' value='<?php echo $feat->feat_url; ?>'required>
+            <input type='text' id='featLink' name='featLink' class='form-control' value='<?php echo $feat->feat_url; ?>'required>
 
             <input type='hidden' name='featID' value='<?php echo $feat->id; ?>'>
             <button type='submit' name='updateFeat' class="btn btn-primary">Update</button>

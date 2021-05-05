@@ -24,7 +24,7 @@
         $message = "<p>$rows_affected feat(s) modified</p>";                
     }
 
-    echo "<h2>Feats for " . $_SESSION['character'] . "</h2>";
+    echo "<div class='row'><div class='col-12 col-lg-4'><h2>Feats for " . $_SESSION['character'] . "</h3>";
 
     $feats = $feat_dao->readAll($_SESSION['id']);
 
@@ -40,35 +40,53 @@
         <tr>
             <td><?php echo $feat;?></td>
 
-            <td><button type='submit' name='editFeat' form='featEditor' 
-                    value=<?php echo $feat->id;?>>edit</button></td>
-            <td><button type='submit' name='deleteFeat' form='featDeleter' 
+            <td>
+                <button type='submit' name='editFeat' form='featEditor' class='btn btn-success' value=<?php echo $feat->id;?>>
+                        edit
+                </button>
+            </td>
+            <td><button type='submit' name='deleteFeat' form='featDeleter' class='btn btn-danger'
                     value=<?php echo $feat->id;?>>delete</button></td>
         </tr>  
 <?php
     }
 ?>
-    </table>
+        </table>
+        </div>
+    
     <!--gives a form for each row to reference without having to generate a form for each value-->
-    <form id='featEditor' method='GET' action='editFeat.php'></form>
-    <form id='featDeleter' method='POST'></form>
-    <hr>
-    <h3>Add a new feat</h3>
-    <form name='featCreator' method='POST' class='form'>
-        <label for='featName'>Feat Name</label>
-        <input type='text' id='featName' name='featName' required>
+        <div class='col-12 col-lg-4'>
+            <h2>Add a new feat</h2>
+            <form name='featCreator' method='POST' class='form'>
+                <div class='row'>
+                    <div class='col-12 col-sm-8 mb-3'>
+                        <label for='featName' class='form-label'>Feat Name</label>
+                        <input type='text' id='featName' name='featName' class='form-control' required>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-12 mb-3'>
+                        <label for='featLink' class='form-label'>URL</label>
+                        <input type='text' id='featLink' name='featLink' class='form-control' required>
+                    </div>
+                </div>
 
-        <label for='featLink'>URL</label>
-        <input type='text' id='featLink' name='featLink' required>
-
-        <button type='submit' name='addFeat'>Add Feat</button>
-    </form>
-    <hr>
+                <button type='submit' name='addFeat' class='btn btn-primary'>Add Feat</button>
+            </form>
+        </div>
+        <div class='col-12 col-lg-4 text-end'>
+            <a href='.'>return</a>
 <?php
 
     if (isset($message)) {
         echo $message;
     }
-    echo "<a href='.'>return</a>";
+    ?>
+    
+        
+    </div>
+    <form id='featEditor' method='GET' action='editFeat.php'></form>
+    <form id='featDeleter' method='POST'></form>
+    <?php
     require_once('template/footer.php');
 ?>
